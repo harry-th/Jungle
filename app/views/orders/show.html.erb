@@ -1,13 +1,19 @@
 <section class="orders-show">
-
   <header class="page-header">
     <h1>Order #<%= @order.id %></h1>
   </header>
-
+  <% @product.each do |item|%>
+    <article class="product-detail">
+      <h2><%= item.name %></h2>
+      <%= item.description%>
+      <%= item.quantity%>
+      <img class='main-img' src=<%= item.image %> />
+    </article>
+  <%end%>
+  <%=@order.total_cents%>
+  <%=@order.email%>
   <div class="order-summary jumbotron">
     <h4>Thank you for your order!</h4>
   </div>
-
   <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
-
 </section>

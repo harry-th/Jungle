@@ -1,2 +1,5 @@
 <h1>Admin::Dashboard#show</h1>
-<p>Find me in app/views/admin/dashboard/show.html.erb</p>
+<p>products:<%= @products.length%></p>
+<p>categories:<%= @categories.length %></p>
+<a href="/admin/products">Edit/add products</a>
+<a href="<%= root_path %>">Index</a>

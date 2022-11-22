@@ -7,12 +7,10 @@ class User < ApplicationRecord
 
   def self.authenticate_with_credentials(email, password)
     user = User.where('lower(email) =?', email.strip.downcase).first
-    pp user, 'hello'
     if user && user.authenticate(password)
         user
     else
         nil
     end
   end
-  scope :ci_find, lambda { |attribute, value| where("lower(#{attribute}) = ?", value.downcase).first }
 end

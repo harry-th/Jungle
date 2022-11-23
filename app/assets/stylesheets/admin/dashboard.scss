@@ -1,0 +1,25 @@
+.dashboard {
+  a {
+    color: black;
+  }
+}
+.dashboard-content {
+  width: 100%;
+  display: flex;
+}
+div.admin-products {
+  width: 66%;
+  display: flex;
+  flex-wrap: wrap;
+  .admin-product-list-item {
+    width: 33%;
+    img {
+      width: 120px;
+      padding: 3px;
+      margin: 2px;
+    }
+  }
+}
+div.admin-categories {
+  width: 33%;
+}

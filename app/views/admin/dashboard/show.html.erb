@@ -1,5 +1,26 @@
-<h1>Admin::Dashboard#show</h1>
-<p>products:<%= @products.length%></p>
-<p>categories:<%= @categories.length %></p>
-<a href="/admin/products">Edit/add products</a>
-<a href="<%= root_path %>">Index</a>
+<div class='dashboard'>
+  <h1>Admin Dashboard</h1>
+  <a href="<%= root_path %>">Back to Home</a>
+  <div class='dashboard-content'>
+    <div>
+      <p>products:<%= @products.length%>
+        <a href="/admin/products">Edit/add products</a></p>
+      <div class='admin-products'>
+        <% @products.each do |product| %>
+          <div class='admin-product-list-item'>
+            <%= product.name %>
+            <%= image_tag product.image.thumb.url , alt: product.name %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class='admin-categories'>
+      <p>categories:<%= @categories.length %></p>
+      <ul>
+        <% @categories.each do |category| %>
+          <li><%= category.name %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

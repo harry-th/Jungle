@@ -6,11 +6,12 @@ class User < ApplicationRecord
   validates :password, length: { minimum: 6 }
 
   def self.authenticate_with_credentials(email, password)
+     return nil if !email || !password
     user = User.where('lower(email) =?', email.strip.downcase).first
-    if user && user.authenticate(password)
-        user
-    else
-        nil
-    end
+     if user && user.authenticate(password)
+      user
+     else
+      nil
+     end
   end
 end

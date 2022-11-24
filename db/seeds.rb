@@ -217,6 +217,7 @@ cat3.products.create!({
   price: 79.99
 })
 
+User.create({first_name:'foo', last_name:'bar', email:'a@a.com', password:'password', password_confirmation: 'password'})
 
 puts "DONE!"
 

@@ -17,18 +17,19 @@ class UsersController < ApplicationController
   end
 
     def login
-    user = User.find_by_email(params[:email])
-    if user && user.authenticate(params[:password])
+      ps = params[:user]
+      user = User.authenticate_with_credentials(ps[:email], ps[:password])
+    if user
       session[:user_id] = user.id
       redirect_to '/'
     else
-      redirect_to '/login'
+      redirect_to '/users/login'
     end
   end
 
   def destroy
     session[:user_id] = nil
-    redirect_to '/login'
+    redirect_to '/users/login'
   end
 
 private
